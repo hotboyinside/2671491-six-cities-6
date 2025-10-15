@@ -1,5 +1,6 @@
+import '../../../markup/css/main.css';
 import { PlaceCard } from '../../components/PlaceCard';
-import './main.css';
+import { PlaceVariant } from '../../types/placeVariants';
 
 const CITIES = [
   'Paris',
@@ -17,72 +18,11 @@ const SORT_OPTIONS = [
   'Top rated first',
 ];
 
-interface PlaceCard {
-  id: string;
-  image: string;
-  price: number;
-  premium: boolean;
-  rating: number;
-  title: string;
-  type: string;
-  bookmarked: boolean;
+type MainProps = {
+  placeVariants: PlaceVariant[];
 }
 
-const PLACE_CARDS: PlaceCard[] = [
-  {
-    id: 'amsterdam-apt-01',
-    image: 'img/apartment-01.jpg',
-    price: 120,
-    premium: true,
-    rating: 80,
-    title: 'Beautiful & luxurious apartment at great location',
-    type: 'Apartment',
-    bookmarked: false,
-  },
-  {
-    id: 'amsterdam-room-01',
-    image: 'img/room.jpg',
-    price: 80,
-    premium: false,
-    rating: 80,
-    title: 'Wood and stone place',
-    type: 'Room',
-    bookmarked: true,
-  },
-  {
-    id: 'amsterdam-apt-02',
-    image: 'img/apartment-02.jpg',
-    price: 132,
-    premium: false,
-    rating: 80,
-    title: 'Canal View Prinsengracht',
-    type: 'Apartment',
-    bookmarked: false,
-  },
-  {
-    id: 'amsterdam-apt-03',
-    image: 'img/apartment-03.jpg',
-    price: 180,
-    premium: true,
-    rating: 100,
-    title: 'Nice, cozy, warm big bed apartment',
-    type: 'Apartment',
-    bookmarked: false,
-  },
-  {
-    id: 'amsterdam-room-02',
-    image: 'img/room.jpg',
-    price: 80,
-    premium: false,
-    rating: 80,
-    title: 'Wood and stone place',
-    type: 'Room',
-    bookmarked: true,
-  },
-];
-
-
-export const Main = () => (
+export const Main = ({ placeVariants }: MainProps) => (
   <div className="page page--gray page--main">
     <header className="header">
       <div className="container">
@@ -175,8 +115,8 @@ export const Main = () => (
             </form>
 
             <div className="cities__places-list places__list tabs__content">
-              {PLACE_CARDS.map((card) => (
-                <PlaceCard key={card.id} {...card} />
+              {placeVariants.map((placeVariant) => (
+                <PlaceCard key={placeVariant.id} {...placeVariant} />
               ))}
             </div>
           </section>
