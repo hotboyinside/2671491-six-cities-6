@@ -1,4 +1,3 @@
-import '../../../markup/css/main.css';
 import { PlaceCard } from '../../components/PlaceCard';
 import { PlaceVariant } from '../../types/placeVariants';
 
@@ -20,7 +19,7 @@ const SORT_OPTIONS = [
 
 type MainProps = {
   placeVariants: PlaceVariant[];
-}
+};
 
 export const Main = ({ placeVariants }: MainProps) => (
   <div className="page page--gray page--main">
