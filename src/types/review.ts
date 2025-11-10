@@ -4,7 +4,7 @@ export interface ReviewSender {
 }
 
 export interface Review {
-  id: number;
+  id: string;
   user: ReviewSender;
   rating: number;
   text: string;
