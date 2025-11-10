@@ -1,5 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import '../markup/css/main.css';
+import App from './App';
+import { PLACE_CARDS } from './const/placeVariant';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -7,6 +10,6 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <h1>Hello, World!</h1>
+    <App placeVariants={PLACE_CARDS} />
   </React.StrictMode>
 );
