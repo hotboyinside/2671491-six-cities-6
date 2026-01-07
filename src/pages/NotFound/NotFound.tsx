@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { MAIN_ROUTE } from '../../const/pageRoutes';
+import { AppRoute } from '../../const/pageRoutes';
 import styles from './NotFound.module.css';
 
 export default function NotFound() {
@@ -10,7 +10,7 @@ export default function NotFound() {
           <section className={styles.wrapper}>
             <h1 className={styles.title}>404</h1>
             <p className={styles.text}>Page not found</p>
-            <Link to={MAIN_ROUTE} className={styles.link}>
+            <Link to={AppRoute.Main} className={styles.link}>
               Return to Home
             </Link>
           </section>

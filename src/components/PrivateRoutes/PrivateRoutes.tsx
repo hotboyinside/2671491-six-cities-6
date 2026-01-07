@@ -1,8 +1,8 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { LOGIN_ROUTE } from '../../const/pageRoutes';
+import { AppRoute } from '../../const/pageRoutes';
 
 export function PrivateRoutes(): JSX.Element {
   const hasAccess = false;
 
-  return hasAccess ? <Outlet /> : <Navigate to={LOGIN_ROUTE} />;
+  return hasAccess ? <Outlet /> : <Navigate to={AppRoute.Login} />;
 }

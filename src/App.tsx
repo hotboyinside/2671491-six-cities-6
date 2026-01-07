@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { PrivateRoutes } from './components/PrivateRoutes/PrivateRoutes';
 import PublicRoutes from './components/PublicRoutes/PublicRoutes';
-import { FAVORITES_ROUTE, LOGIN_ROUTE, OFFER_ROUTE } from './const/pageRoutes';
+import { AppRoute } from './const/pageRoutes';
 import { FavoritesPlaces } from './pages/FavoritesPlaces';
 import Login from './pages/Login/Login';
 import { Main } from './pages/Main';
@@ -19,16 +19,15 @@ export default function App({ placeVariants, favoritePlaces }: AppProps) {
     <BrowserRouter>
       <Routes>
         <Route index element={<Main placeVariants={placeVariants} />} />
-        <Route path={OFFER_ROUTE} element={<Offer />} />
+        <Route path={AppRoute.Offer} element={<Offer />} />
 
         <Route element={<PublicRoutes />}>
-          <Route path={LOGIN_ROUTE} element={<Login />} />
+          <Route path={AppRoute.Login} element={<Login />} />
         </Route>
 
         <Route element={<PrivateRoutes />}>
-          {/* <Route path={SPECIFIC_OFFER_ROUTE} element={<Offer />} /> */}
           <Route
-            path={FAVORITES_ROUTE}
+            path={AppRoute.Favorites}
             element={<FavoritesPlaces favoritePlaces={favoritePlaces} />}
           />
         </Route>

@@ -1,6 +1,6 @@
 import { FormEvent, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { MAIN_ROUTE } from '../../const/pageRoutes';
+import { AppRoute } from '../../const/pageRoutes';
 
 export default function Login() {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -26,7 +26,7 @@ export default function Login() {
         <div className="container">
           <div className="header__wrapper">
             <div className="header__left">
-              <Link className="header__logo-link" to={MAIN_ROUTE}>
+              <Link className="header__logo-link" to={AppRoute.Main}>
                 <img
                   className="header__logo"
                   src="img/logo.svg"
@@ -83,7 +83,7 @@ export default function Login() {
 
           <section className="locations locations--login locations--current">
             <div className="locations__item">
-              <Link className="locations__item-link" to={MAIN_ROUTE}>
+              <Link className="locations__item-link" to={AppRoute.Main}>
                 <span>Amsterdam</span>
               </Link>
             </div>
