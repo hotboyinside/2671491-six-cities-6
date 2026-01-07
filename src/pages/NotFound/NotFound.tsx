@@ -1,0 +1,21 @@
+import { Link } from 'react-router-dom';
+import { MAIN_ROUTE } from '../../const/pageRoutes';
+import styles from './NotFound.module.css';
+
+export default function NotFound() {
+  return (
+    <div className={`page page--gray ${styles.pageContainer}`}>
+      <main className="page__main page__main--index page__main--index-empty">
+        <div className="container">
+          <section className={styles.wrapper}>
+            <h1 className={styles.title}>404</h1>
+            <p className={styles.text}>Page not found</p>
+            <Link to={MAIN_ROUTE} className={styles.link}>
+              Return to Home
+            </Link>
+          </section>
+        </div>
+      </main>
+    </div>
+  );
+}
