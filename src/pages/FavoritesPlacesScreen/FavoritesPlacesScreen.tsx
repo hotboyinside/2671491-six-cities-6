@@ -1,11 +1,13 @@
 import { PlaceCard } from '../../components/PlaceCard';
 import { PlaceVariant } from '../../types/placeVariants';
 
-type FavoritesPlacesProps = {
+type FavoritesPlacesScreenProps = {
   favoritePlaces: PlaceVariant[];
 };
 
-export const FavoritesPlaces = ({ favoritePlaces }: FavoritesPlacesProps) => (
+export const FavoritesPlacesScreen = ({
+  favoritePlaces,
+}: FavoritesPlacesScreenProps) => (
   <div className="page">
     <header className="header">
       <div className="container">

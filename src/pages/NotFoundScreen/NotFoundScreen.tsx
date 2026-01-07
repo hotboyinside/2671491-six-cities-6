@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const/pageRoutes';
-import styles from './NotFound.module.css';
+import styles from './NotFoundScreen.module.css';
 
-export default function NotFound() {
+export function NotFoundScreen() {
   return (
     <div className={`page page--gray ${styles.pageContainer}`}>
       <main className="page__main page__main--index page__main--index-empty">

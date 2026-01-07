@@ -2,7 +2,7 @@ import { FormEvent, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { AppRoute } from '../../const/pageRoutes';
 
-export default function Login() {
+export function LoginScreen() {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
 

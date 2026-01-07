@@ -17,11 +17,11 @@ const SORT_OPTIONS = [
   'Top rated first',
 ];
 
-type MainProps = {
+type MainScreenProps = {
   placeVariants: PlaceVariant[];
 };
 
-export const Main = ({ placeVariants }: MainProps) => (
+export const MainScreen = ({ placeVariants }: MainScreenProps) => (
   <div className="page page--gray page--main">
     <header className="header">
       <div className="container">
