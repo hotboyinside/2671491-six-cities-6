@@ -3,7 +3,7 @@ import { Gallery } from './Gallery';
 import { NearbyPlaces } from './NearbyPlaces';
 import { OfferDetails } from './OfferDetails';
 
-export function Offer() {
+export function OfferScreen() {
   return (
     <div className="page">
       <Header />

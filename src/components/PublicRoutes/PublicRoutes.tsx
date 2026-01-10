@@ -1,8 +1,8 @@
 import { Navigate, Outlet } from 'react-router-dom';
-import { MAIN_ROUTE } from '../../const/pageRoutes';
+import { AppRoute } from '../../const/pageRoutes';
 
-export default function PublicRoutes() {
+export function PublicRoutes() {
   const hasAccess = false;
 
-  return hasAccess ? <Navigate to={MAIN_ROUTE} /> : <Outlet />;
+  return hasAccess ? <Navigate to={AppRoute.Main} /> : <Outlet />;
 }
