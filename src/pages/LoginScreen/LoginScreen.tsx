@@ -1,6 +1,6 @@
 import { FormEvent, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { AppRoute } from '../../const/pageRoutes';
+import { AppRoute } from '../../consts/pageRoutes';
 
 export function LoginScreen() {
   const emailRef = useRef<HTMLInputElement>(null);

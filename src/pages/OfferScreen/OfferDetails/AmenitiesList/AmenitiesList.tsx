@@ -1,4 +1,4 @@
-import { AMENITIES } from '../../../../const/amenities';
+import { AMENITIES } from '../../../../mocks/amenities';
 
 export const AmenitiesList = () => (
   <div className="offer__inside">

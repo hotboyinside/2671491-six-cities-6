@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { AppRoute } from '../../const/pageRoutes';
+import { AppRoute } from '../../consts/pageRoutes';
 import styles from './NotFoundScreen.module.css';
 
 export function NotFoundScreen() {

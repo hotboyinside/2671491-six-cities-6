@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { PrivateRoutes } from './components/PrivateRoutes';
 import { PublicRoutes } from './components/PublicRoutes';
-import { AppRoute } from './const/pageRoutes';
+import { AppRoute } from './consts/pageRoutes';
 import { FavoritesPlacesScreen } from './pages/FavoritesPlacesScreen';
 import { LoginScreen } from './pages/LoginScreen';
 import { MainScreen } from './pages/MainScreen';
