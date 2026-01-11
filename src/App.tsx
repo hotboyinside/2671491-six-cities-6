@@ -7,19 +7,28 @@ import { LoginScreen } from './pages/LoginScreen';
 import { MainScreen } from './pages/MainScreen';
 import { NotFoundScreen } from './pages/NotFoundScreen';
 import { OfferScreen } from './pages/OfferScreen';
+import { Offer } from './types/offers';
 import { PlaceVariant } from './types/placeVariants';
 
 type AppProps = {
   placeVariants: PlaceVariant[];
   favoritePlaces: PlaceVariant[];
+  offers: Offer[];
 };
 
-export default function App({ placeVariants, favoritePlaces }: AppProps) {
+export default function App({
+  placeVariants,
+  favoritePlaces,
+  offers,
+}: AppProps) {
   return (
     <BrowserRouter>
       <Routes>
         <Route index element={<MainScreen placeVariants={placeVariants} />} />
-        <Route path={AppRoute.Offer} element={<OfferScreen />} />
+        <Route
+          path={AppRoute.Offer}
+          element={<OfferScreen offers={offers} />}
+        />
 
         <Route element={<PublicRoutes />}>
           <Route path={AppRoute.Login} element={<LoginScreen />} />

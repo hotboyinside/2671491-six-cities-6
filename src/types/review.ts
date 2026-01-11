@@ -1,12 +1,12 @@
 export interface ReviewSender {
   name: string;
-  avatar: string;
+  avatarUrl: string;
 }
 
 export interface Review {
   id: string;
   user: ReviewSender;
   rating: number;
-  text: string;
+  comment: string;
   date: string;
 }

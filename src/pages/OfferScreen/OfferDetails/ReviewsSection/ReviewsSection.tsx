@@ -1,16 +1,6 @@
-import { Review } from '../../../../types/review';
+import { REVIEWS } from '../../../../mocks/reviews';
 import { ReviewForm } from './ReviewForm';
 import { ReviewItem } from './ReviewItem';
-
-const REVIEWS: Review[] = [
-  {
-    id: 'review_max',
-    user: { name: 'Max', avatar: 'img/avatar-max.jpg' },
-    rating: 80,
-    text: 'A quiet cozy and picturesque that hides behind a a river by the unique lightness of Amsterdam. The building is green and from 18th century.',
-    date: '2019-04-24',
-  },
-];
 
 export const ReviewsSection = () => (
   <section className="offer__reviews reviews">
