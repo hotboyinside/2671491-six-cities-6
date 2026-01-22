@@ -1,49 +1,51 @@
 import { useState } from 'react';
-import { createOnChangeHandler } from '../../../../utils/react/form/create-on-change-handler';
-import { preventDefault } from '../../../../utils/event';
+import { Navigate } from 'react-router-dom';
+
+import limits from '../../../../components/comment/components/comment-form/constants/limits';
 import {
   isNotFoundError,
   isUnauthorizedError,
   isValidationError,
 } from '../../../../config/redux/thunk';
-import { Navigate } from 'react-router-dom';
-import limits from '../../../../components/comment/components/comment-form/constants/limits';
+import { preventDefault } from '../../../../utils/event';
+import { createOnChangeHandler } from '../../../../utils/react/form/create-on-change-handler';
+import { RatingInput } from '../../../rating/components/rating-input';
 import RouterPaths from '../../../router/constants/router-paths';
 import { postComment } from '../../features/post-comment';
 import { resetCommentPostQuery } from '../../features/reset-comment-post-query';
-import { Comment } from '../../types';
 import { useCommentPostQuery } from '../../hooks/use-comment-post-query';
-import { RatingInput } from '../../../rating/components/rating-input';
+import { Comment } from '../../types';
 
-const getEmptyCommentState = (): Partial<Comment> => ({ comment: '' });
+function emptyComment(): Partial<Comment> {
+  return { comment: '' };
+}
 
 export function CommentForm({ offerId }: { offerId?: string }) {
-  const [comment, setComment] = useState<Partial<Comment>>(
-    getEmptyCommentState()
-  );
+  const [formState, setFormState] = useState<Partial<Comment>>(emptyComment());
   const { isLoading, isError, error } = useCommentPostQuery();
 
   const handleInputChange = createOnChangeHandler((builder) =>
     builder
-      .addCase('review', (value) => setComment({ ...comment, comment: value }))
+      .addCase('review', (value) =>
+        setFormState((prev) => ({ ...prev, comment: value }))
+      )
       .addCase('rating', (value) =>
-        setComment({
-          ...comment,
-          rating: parseInt(value, 10),
-        })
+        setFormState((prev) => ({ ...prev, rating: parseInt(value, 10) }))
       )
   );
 
-  const handleFormSubmit = preventDefault(() => {
-    if ([offerId, comment.comment, comment.rating].includes(undefined)) {
-      throw new Error('Invalid form state');
-    } else {
-      postComment({
-        offerId: offerId as string,
-        comment: comment as Comment,
-      });
-      setComment(getEmptyCommentState());
+  const isFormValid = (): boolean =>
+    !!offerId &&
+    !!formState.comment &&
+    formState.comment.length >= limits.commentMinCharacters &&
+    formState.rating !== undefined;
+
+  const handleSubmit = preventDefault(() => {
+    if (!isFormValid()) {
+      throw new Error('Form is invalid');
     }
+    postComment({ offerId: offerId as string, comment: formState as Comment });
+    setFormState(emptyComment());
   });
 
   if (isError) {
@@ -68,34 +70,32 @@ export function CommentForm({ offerId }: { offerId?: string }) {
       <label className="reviews__label form__label" htmlFor="review">
         Your review
       </label>
-      <RatingInput rating={comment.rating} onChange={handleInputChange} />
+
+      <RatingInput rating={formState.rating} onChange={handleInputChange} />
+
       <textarea
         className="reviews__textarea form__textarea"
         id="review"
         name="review"
         placeholder="Tell how was your stay, what you like and what can be improved"
-        value={comment.comment}
+        value={formState.comment || ''}
         onChange={handleInputChange}
         data-testid="comment-input"
         maxLength={limits.commentMaxCharacters}
       />
+
       <div className="reviews__button-wrapper">
         <p className="reviews__help">
           To submit review please make sure to set{' '}
           <span className="reviews__star">rating</span> and describe your stay
           with at least <b className="reviews__text-amount">50 characters</b>.
         </p>
+
         <button
           className="reviews__submit form__submit button"
           type="submit"
-          onClick={handleFormSubmit}
-          disabled={
-            offerId === undefined ||
-            comment.comment === undefined ||
-            comment.comment.length < limits.commentMinCharacters ||
-            comment.rating === undefined ||
-            isLoading
-          }
+          onClick={handleSubmit}
+          disabled={!isFormValid() || isLoading}
         >
           Submit
         </button>

@@ -1,10 +1,10 @@
 import { Dispatch, SetStateAction, useCallback, useMemo } from 'react';
+import { Offer, OfferMeta } from '../..';
 import { City } from '../../../../components/city/types';
 import CardList from '../../../../components/offer/components/card-list';
-import { OfferMeta, Offer } from '../..';
-import { useSortSelectOptions } from '../sort-select/hooks/use-sort-select-options';
-import { SortSelect } from '../sort-select';
 import { getComparatorBySortType } from '../../helpers/get-comparator-by-sort-type';
+import { SortSelect } from '../sort-select';
+import { useSortSelectOptions } from '../sort-select/hooks/use-sort-select-options';
 
 export default function CityOffers({
   city,
@@ -38,7 +38,7 @@ export default function CityOffers({
       </b>
       <SortSelect select={select} />
       <div className="cities__places-list places__list tabs__content">
-        <CardList offers={sortedOffers} onCardMouseEntry={handleCardMouseEnter} />
+        <CardList offers={sortedOffers} onCardMouseEnter={handleCardMouseEnter} />
       </div>
     </section>
   );
