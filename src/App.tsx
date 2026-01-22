@@ -11,24 +11,16 @@ import { Offer } from './types/offers';
 import { PlaceVariant } from './types/placeVariants';
 
 type AppProps = {
-  placeVariants: PlaceVariant[];
   favoritePlaces: PlaceVariant[];
   offers: Offer[];
 };
 
-export default function App({
-  placeVariants,
-  favoritePlaces,
-  offers,
-}: AppProps) {
+export default function App({ favoritePlaces, offers }: AppProps) {
   return (
     <BrowserRouter>
       <Routes>
-        <Route index element={<MainScreen placeVariants={placeVariants} />} />
-        <Route
-          path={AppRoute.Offer}
-          element={<OfferScreen offers={offers} />}
-        />
+        <Route index element={<MainScreen offers={offers} />} />
+        <Route path={AppRoute.OfferId} element={<OfferScreen />} />
 
         <Route element={<PublicRoutes />}>
           <Route path={AppRoute.Login} element={<LoginScreen />} />

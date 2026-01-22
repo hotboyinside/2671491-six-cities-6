@@ -1,15 +1,11 @@
 import { Header } from '../../components/Header';
-import { Offer } from '../../types/offers';
+import { OFFERS } from '../../mocks/offers';
 import { Gallery } from './Gallery';
 import { NearbyPlaces } from './NearbyPlaces';
 import { OfferDetails } from './OfferDetails';
 
-type OfferScreenProps = {
-  offers: Offer[];
-};
-
-export function OfferScreen({ offers }: OfferScreenProps) {
-  const currentOffer = offers[0];
+export function OfferScreen() {
+  const currentOffer = OFFERS[0];
 
   return (
     <div className="page">

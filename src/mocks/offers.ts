@@ -21,6 +21,7 @@ export const OFFERS: Offer[] = [
     isFavorite: false,
     bedrooms: 3,
     maxAdults: 4,
+    mainImage: 'img/apartment-01.jpg',
     images: shuffleArray(GALLERY_IMAGES)
       .slice(0, 6)
       .map((src, i) => ({ id: `img-${i}`, src })),
@@ -57,6 +58,7 @@ export const OFFERS: Offer[] = [
     isFavorite: true,
     bedrooms: 1,
     maxAdults: 2,
+    mainImage: 'img/room.jpg',
     images: shuffleArray(GALLERY_IMAGES)
       .slice(0, 6)
       .map((src, i) => ({ id: `img-${i}`, src })),
@@ -82,6 +84,7 @@ export const OFFERS: Offer[] = [
     isFavorite: false,
     bedrooms: 2,
     maxAdults: 3,
+    mainImage: 'img/apartment-02.jpg',
     images: shuffleArray(GALLERY_IMAGES)
       .slice(0, 6)
       .map((src, i) => ({ id: `img-${i}`, src })),
@@ -114,6 +117,7 @@ export const OFFERS: Offer[] = [
     isFavorite: true,
     bedrooms: 4,
     maxAdults: 6,
+    mainImage: 'img/apartment-03.jpg',
     images: shuffleArray(GALLERY_IMAGES)
       .slice(0, 6)
       .map((src, i) => ({ id: `img-${i}`, src })),

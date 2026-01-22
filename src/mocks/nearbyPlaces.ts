@@ -1,0 +1,32 @@
+export const NEARBY_PLACES = [
+  {
+    id: 'amsterdam-room-01',
+    mainImage: 'img/room.jpg',
+    price: 80,
+    isPremium: false,
+    rating: 80,
+    title: 'Wood and stone place',
+    type: 'Room',
+    isFavorite: true,
+  },
+  {
+    id: 'amsterdam-apt-02',
+    mainImage: 'img/apartment-02.jpg',
+    price: 132,
+    isPremium: false,
+    rating: 80,
+    title: 'Canal View Prinsengracht',
+    type: 'Apartment',
+    isFavorite: false,
+  },
+  {
+    id: 'amsterdam-apt-03',
+    mainImage: 'img/apartment-03.jpg',
+    price: 180,
+    isPremium: true,
+    rating: 100,
+    title: 'Nice, cozy, warm big bed apartment',
+    type: 'Apartment',
+    isFavorite: false,
+  },
+];

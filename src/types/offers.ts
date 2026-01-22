@@ -25,6 +25,7 @@ export interface Offer {
   isFavorite: boolean;
   bedrooms: number;
   maxAdults: number;
+  mainImage: string;
   images: OfferImage[];
   goods: string[];
   host: Host;
