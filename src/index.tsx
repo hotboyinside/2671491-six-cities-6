@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import '../markup/css/main.css';
-import App from './App';
-import { FAVORITE_PLACES } from './mocks/favoritePlaces';
-import { OFFERS } from './mocks/offers';
+import { Provider } from 'react-redux';
+import { store } from './config/redux';
+import { restoreAuthDataFromLocalStorage } from './components/auth/features/restore-auth-data-from-local-storage';
+import { AppRouter } from './components/router/components/app-router';
+
+restoreAuthDataFromLocalStorage();
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -11,6 +13,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App favoritePlaces={FAVORITE_PLACES} offers={OFFERS} />
+    <Provider store={store}>
+      <AppRouter />;
+    </Provider>
   </React.StrictMode>
 );
